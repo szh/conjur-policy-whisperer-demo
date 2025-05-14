@@ -3,3 +3,9 @@
   body:
     - !variable
       id: test-variable
+
+    - !group
+      id: test-group
+      members:
+        - !user
+          id: test-user
