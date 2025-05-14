@@ -10,7 +10,7 @@ on:
 jobs:
   validate-conjur-policies:
     name: Validate Conjur Policies
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     
     # Set the permissions needed for OIDC authentication
     permissions:
