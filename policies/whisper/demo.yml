@@ -6,6 +6,3 @@
 
     - !group
       id: test-group
-      members:
-        - !user
-          id: test-user
