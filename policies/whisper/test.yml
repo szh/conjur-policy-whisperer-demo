@@ -1,0 +1,5 @@
+- !policy
+  id: test-policy
+  body:
+    - !variable
+      id: test-variable

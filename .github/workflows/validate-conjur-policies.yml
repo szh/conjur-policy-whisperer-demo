@@ -25,7 +25,7 @@ jobs:
           fetch-depth: 0  # Required to detect changes between branches
 
       - name: Validate Conjur Policy Files
-        uses: szh/conjur-policy-whisperer@v1
+        uses: szh/conjur-policy-whisperer@main
         with:
           conjur_url: ${{ secrets.CONJUR_URL }}
           conjur_account: ${{ secrets.CONJUR_ACCOUNT }}
