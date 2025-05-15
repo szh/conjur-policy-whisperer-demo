@@ -1,0 +1,1 @@
+- !policy\n  id: app1\n  body:\n    - !group admins
