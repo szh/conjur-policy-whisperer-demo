@@ -1,0 +1,44 @@
+# conjur policy load root authn/authn-oidc/customer-portal.yml
+
+- !policy
+  id: conjur/authn-oidc/customer-portal
+  annotations:
+    description: OIDC authenticator policy for customer-portal web application using Azure AD
+  body:
+    # Define the webservice for OIDC authentication
+    - !webservice
+      annotations:
+        description: Authentication service for customer-portal web application, based on OpenID Connect.
+
+    # Define required variables for the OIDC authenticator
+    - !variable
+      id: issuer
+      annotations:
+        description: The issuer URI for Azure AD
+
+    - !variable
+      id: jwks-uri
+      annotations:
+        description: The URI for the JSON Web Key Set (JWKS) used for token validation
+
+    - !variable
+      id: token-app-property
+      annotations:
+        description: The application-specific property used in the token to identify the Conjur username
+    
+    - !variable
+      id: audience
+      annotations:
+        description: The audience claim expected in the Azure AD tokens
+
+    # Define a group for users who can authenticate
+    - !group
+      id: consumers
+      annotations:
+        description: Group of users allowed to authenticate using the authn-oidc/customer-portal authenticator
+
+    # Grant permissions for authentication
+    - !permit
+      role: !group consumers
+      privileges: [ read, authenticate ]
+      resource: !webservice
