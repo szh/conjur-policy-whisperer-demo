@@ -3,3 +3,6 @@
   body:
     - !variable
       id: test-variable
+
+    - !group
+      id: test-group
